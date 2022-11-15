@@ -1,7 +1,14 @@
 package com.company;
 
+import com.company.abstractFactory.Car;
+import com.company.abstractFactory.CarFactory;
+import com.company.abstractFactory.FactoryProvider;
 import com.company.builder.Weapon;
 import com.company.builder.WeaponBuilder;
+import com.company.factory.Game;
+import com.company.factory.GameFactory;
+import com.company.factory.HaloGameCreator;
+import com.company.factory.ScrabbleGameCreator;
 import com.company.singleton.CountEnum;
 import com.company.singleton.Counter;
 import com.company.singleton.Database;
@@ -43,7 +50,7 @@ public class Main {
 //        Computer computer = Computer.getInstance();
 //        System.out.println(computer.getComputerState());
 
-        Weapon ak47 = new WeaponBuilder()
+/*        Weapon ak47 = new WeaponBuilder()
                 .withType("Gun")
                 .withName("AK-47")
                 .withPerks(new ArrayList<>())
@@ -51,13 +58,42 @@ public class Main {
                 .withDurability(100000)
                 .build();
 
-        System.out.println(ak47.getDamage());
+        System.out.println(ak47.getDamage());*/
+
+//        String type = "yaoo";
+//
+//        GameFactory factory;
+//        if (type.equals("PC")) {
+//            factory = new HaloGameCreator();
+//        } else if (type.equals("Board")) {
+//            factory = new ScrabbleGameCreator();
+//        } else {
+//            throw new RuntimeException("Unknown game type");
+//        }
+//
+//        Game game = factory.create();
+//        System.out.println(game);
+
+        String type = "Lexus";
+        CarFactory factory = new FactoryProvider().createFactory(type);
+        Car sedan = factory.createSedan();
+
+        System.out.println(sedan);
     }
 
-    // 30 mins.
-    // Exercise: Create an eager singleton class called Engine
-    // It should have a boolean field called isEngineWorking;
+    // 40 mins.
+    // Create a singleton called Students. This singleton will store
+    // a list of students as String. Implement the following functionality
+    // When adding a student to the list:
+    // - we should have a method to add a student to the list, and this method
+    // returns a boolean(If the addition is successful, it returns true,
+    // else it returns false).
+    // - In order to successfully add a student the student name
+    // must be prefixed with
+    // either 'senior' or 'junior' e.x senior James Dashboard
+    // - Adding a duplicate name is not allowed.
+    // - Add a method to retrieve all students with a prefix of 'senior'
+    // - Add a method to retrieve all students with a prefix of 'junior'
 
-    // Exercise: Create a lazy double checked singleton called Computer
-    // It should have a boolean field called startUp;
+
 }
