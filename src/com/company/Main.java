@@ -3,8 +3,15 @@ package com.company;
 import com.company.abstractFactory.Car;
 import com.company.abstractFactory.CarFactory;
 import com.company.abstractFactory.FactoryProvider;
+import com.company.adapter.Pupil;
+import com.company.adapter.PupilAdapter;
+import com.company.adapter.Student;
+import com.company.adapter.exercises.VideoGame;
+import com.company.adapter.exercises.VideoGameAdapter;
 import com.company.builder.Weapon;
 import com.company.builder.WeaponBuilder;
+import com.company.builder.exercises.User;
+import com.company.builder.exercises.UserBuilder;
 import com.company.factory.Game;
 import com.company.factory.GameFactory;
 import com.company.factory.HaloGameCreator;
@@ -16,6 +23,7 @@ import com.company.singleton.exercises.Computer;
 import com.company.singleton.exercises.Engine;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -74,11 +82,32 @@ public class Main {
 //        Game game = factory.create();
 //        System.out.println(game);
 
-        String type = "Lexus";
-        CarFactory factory = new FactoryProvider().createFactory(type);
-        Car sedan = factory.createSedan();
+//        String type = "Lexus";
+//        CarFactory factory = new FactoryProvider().createFactory(type);
+//        Car sedan = factory.createSedan();
+//
+//        System.out.println(sedan);
+/*
+        User fred = new User("Fred", "Bradley", 12, "fred@gmail.com", "+444-333-2233", "2, orange street");
 
-        System.out.println(sedan);
+        User barry = new UserBuilder()
+                .withFirstName("Barry")
+                .withLastName("Duval")
+                .build();
+
+        System.out.println(fred);
+        System.out.println(barry);*/
+
+//        Student ken = new PupilAdapter(new Pupil("Ken", "Derrick", "ken@gmail.com", 10, Arrays.asList(2, 4, 5)));
+//
+//        System.out.println(ken.getFullName());
+//        System.out.println(ken.isAdult());
+
+        Game uncharted = new VideoGameAdapter(new VideoGame("Uncharted 4", 18, 4, 200));
+
+        System.out.println(uncharted.getName());
+        System.out.println(uncharted.canBePlayedRemotely());
+
     }
 
     // 40 mins.
@@ -96,4 +125,24 @@ public class Main {
     // - Add a method to retrieve all students with a prefix of 'junior'
 
 
+
+    // 40 mins.
+    // Create a User class having the following fields:
+    // firstName, lastName, age, email, phoneNumber, address
+
+    // Use the builder pattern to create a class called UserBuilder
+    // that will be used to make the process of creating a new user easier.
+
+
+    // 30 mins
+    // Create an class called VideoGame
+    // getPegiName() - String
+    // getAgeRating() - int
+    // coresNeeded() - int
+    // pingTime() - int
+
+    // VideoGame -> In order for canBePlayedRemotely to be valid
+    // it must have a ping less than 100ms.
+
+    // Create an adpater to convert a Video Game object into a Game(PCGame) object.
 }
