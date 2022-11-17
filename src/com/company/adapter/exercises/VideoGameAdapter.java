@@ -35,5 +35,4 @@ public class VideoGameAdapter implements Game {
     public boolean canBePlayedRemotely() {
         return videoGame.getPingTime() < 100;
     }
-
 }

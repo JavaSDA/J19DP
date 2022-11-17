@@ -6,4 +6,7 @@ public interface Game {
     int getMinNumberOfPlayers();
     int getMaxNumberOfPlayers();
     boolean canBePlayedRemotely();
+    default int getValue() {
+        return 5;
+    }
 }

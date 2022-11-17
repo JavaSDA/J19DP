@@ -8,6 +8,9 @@ import com.company.adapter.PupilAdapter;
 import com.company.adapter.Student;
 import com.company.adapter.exercises.VideoGame;
 import com.company.adapter.exercises.VideoGameAdapter;
+import com.company.adapter.exercises.rectangle.Rectangle;
+import com.company.adapter.exercises.rectangle.Square;
+import com.company.adapter.exercises.rectangle.SquareAdapter;
 import com.company.builder.Weapon;
 import com.company.builder.WeaponBuilder;
 import com.company.builder.exercises.User;
@@ -21,9 +24,11 @@ import com.company.singleton.Counter;
 import com.company.singleton.Database;
 import com.company.singleton.exercises.Computer;
 import com.company.singleton.exercises.Engine;
+import org.w3c.dom.css.Rect;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -103,10 +108,19 @@ public class Main {
 //        System.out.println(ken.getFullName());
 //        System.out.println(ken.isAdult());
 
-        Game uncharted = new VideoGameAdapter(new VideoGame("Uncharted 4", 18, 4, 200));
+/*        Game uncharted = new VideoGameAdapter(new VideoGame("Uncharted 4", 18, 4, 200));
 
         System.out.println(uncharted.getName());
         System.out.println(uncharted.canBePlayedRemotely());
+        System.out.println(uncharted.getValue());*/
+
+        List<Integer> list = new ArrayList<>();
+
+        Square square = new Square(4);
+        Rectangle shape = new SquareAdapter(square);
+
+        System.out.println(shape.getWidth());
+        System.out.println(shape.getArea());
 
     }
 
@@ -145,4 +159,27 @@ public class Main {
     // it must have a ping less than 100ms.
 
     // Create an adpater to convert a Video Game object into a Game(PCGame) object.
+
+
+    // 30 mins.
+    // Create a class called Employee and add the following fields to it:
+    // firstName, lastName, age, nameOfEmployer, phoneNumber, email, salary
+
+    // Create a builder to handle the creation of the Employee object
+    // as a static builder class in the Employee.java file.
+
+
+    // Adapter - 30 mins.
+    // Create a target interface called Rectangle and it should have
+    // the following:
+    // - getWidth() - abstract method
+    // - getHeight() - abstract method
+    // - getArea() - default method that should return the value of
+    // getWidth() * getHeight()
+
+    // Create a class called Square that has one field called side.
+    // which represents the length of a side of the square.
+
+    // Create an adapter that will allow us to use the Rectangle interface
+    // to find the width, height and area of the square.
 }
